@@ -1,50 +1,134 @@
-# React + TypeScript + Vite
+# React Schedule Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
 
-Currently, two official plugins are available:
+Этот проект представляет собой удобное приложение для просмотра расписания, разработанное с использованием React и Vite. Основной функционал приложения включает определение текущего дня недели и недели (чётной или нечётной) с учётом московского времени, а также сохранение состояния для удобства пользователей. Цель проекта — сделать просмотр расписания проще и интуитивно понятнее.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал
 
-## Expanding the ESLint configuration
+- **Определение текущей недели**: Приложение автоматически вычисляет, является ли текущая неделя чётной или нечётной.
+- **Отображение текущего дня недели**: В интерфейсе выводится название текущего дня недели.
+- **Удобный интерфейс**: С использованием React обеспечивается быстрый отклик и современный пользовательский опыт.
+- **Сохранение состояния**: Компоненты приложения сохраняют введённые пользователем данные, такие как выбранная группа, для последующего использования.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Стек технологий
 
-- Configure the top-level `parserOptions` property like this:
+- **Frontend**: React + TypeScript
+- **Сборка проекта**: Vite
+- **Стилизация**: TailwindCSS (или любая другая библиотека по вашему выбору)
+- **Управление состоянием**: React Hooks (useState, useEffect)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Установка и запуск проекта
+
+1. Клонируйте репозиторий:
+
+   ```bash
+   git clone https://github.com/yourusername/react-schedule-viewer.git
+   ```
+
+2. Перейдите в директорию проекта:
+
+   ```bash
+   cd react-schedule-viewer
+   ```
+
+3. Установите зависимости:
+
+   ```bash
+   npm install
+   ```
+
+4. Запустите локальный сервер разработки:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Откройте приложение в браузере по адресу [http://localhost:5173](http://localhost:5173).
+
+## Основные компоненты
+
+### CurrentWeek
+
+Компонент, который:
+
+- Определяет текущий день недели и неделю (чётная/нечётная).
+- Отображает эти данные в пользовательском интерфейсе.
+
+Ключевые функции:
+
+- Использует московское время для расчётов.
+- Динамически обновляет данные при загрузке страницы.
+
+### GroupFilter
+
+Компонент для выбора группы из списка:
+
+- Поддерживает поиск по названию группы.
+- Сохраняет выбранную группу и фильтрует список.
+- Скрывает список, когда пользователь завершает выбор.
+
+## Разработка
+
+### Структура проекта
+
+```
+react-schedule-viewer/
+├── public/          # Статические файлы
+├── src/
+│   ├── components/  # Компоненты приложения
+│   │   ├── CurrentWeek.tsx
+│   │   ├── GroupFilter.tsx
+│   ├── common/      # Общие утилиты и данные
+│   │   ├── groups.ts
+│   ├── App.tsx      # Главный компонент приложения
+│   ├── main.tsx     # Точка входа в приложение
+├── package.json     # Зависимости проекта
+├── vite.config.ts   # Конфигурация Vite
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Дополнительные команды
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Сборка проекта**:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  ```bash
+  npm run build
+  ```
+
+- **Запуск сервера для продакшн-сборки**:
+
+  ```bash
+  npm run preview
+  ```
+
+## Будущие улучшения
+
+- Добавление поддержки для кастомного расписания.
+- Интеграция с API для получения актуальных данных о расписании.
+- Улучшение интерфейса с помощью анимаций и более подробной информации.
+- Возможность переключения между несколькими группами.
+
+## Вклад в проект
+
+Если вы хотите внести свой вклад:
+
+1. Форкните репозиторий.
+2. Создайте ветку для своих изменений:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Закоммитьте изменения и отправьте их в вашу ветку:
+   ```bash
+   git commit -m "Добавлено: feature-name"
+   git push origin feature-name
+   ```
+4. Создайте pull request.
+
+## Лицензия
+
+Этот проект распространяется под лицензией MIT. Подробности можно найти в файле [LICENSE](LICENSE).
+
+---
+
+Спасибо за использование React Schedule Viewer!
+
