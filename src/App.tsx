@@ -5,6 +5,7 @@ import ScheduleTable from './components/ScheduleTable';  // Импортируе
 import WeekFilter from './components/WeekFilter';  // Импортируем компонент для фильтра недели
 import NavMenu from './components/NavMenu';
 import GroupFilter from './components/GroupFilter';
+import CurrentWeek from './components/CurrentWeek';
 
 // Тип для элемента расписания
 interface ScheduleItem {
@@ -71,6 +72,8 @@ const selectDay = (day: string) => {
   return (
     <div className="p-0 m-0 bg-gray-400 min-h-screen h-full">
       <NavMenu />
+      <CurrentWeek />
+      
       <WeekFilter weekFilter={weekFilter} setWeekFilter={setWeekFilter} />
       <GroupFilter groupFilter={groupFilter} setGroupFilter={setGroupFilter} />
 

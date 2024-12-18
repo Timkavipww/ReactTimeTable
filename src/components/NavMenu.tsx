@@ -1,6 +1,6 @@
 const NavMenu = () => {
     return (
-<div className="w-full h-10 bg-gray-700 flex items-center justify-between px-4">
+<div className="w-full h-12 bg-gray-700 flex items-center justify-between px-4">
         {/* Левая часть - "Расписание" */}
         <a href="/" className="text-white">Расписание</a>
 
