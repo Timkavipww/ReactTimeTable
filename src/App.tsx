@@ -92,16 +92,18 @@ const selectDay = (day: string) => {
 
       <div>
   {/* Отображаем только активные дни, проверяя, есть ли расписание для пятницы */}
-  {schedules.map((schedule, index) =>
-    activeDays.includes(schedule.title) && (schedule.title !== 'Пятница' || schedule.filteredSchedule.length > 0) ? (
-      <ScheduleTable
-        key={index}  // Уникальный ключ для каждого компонента
-        title={schedule.title}
-        filteredSchedule={schedule.filteredSchedule}
-      />
-    ) : null
-  )}
-</div>
+  {/* Отображаем только активные дни, проверяя, есть ли расписание для каждого дня */}
+{schedules.map((schedule, index) =>
+  activeDays.includes(schedule.title) && schedule.filteredSchedule.length > 0 ? (
+    <ScheduleTable
+      key={index} // Уникальный ключ для каждого компонента
+      title={schedule.title}
+      filteredSchedule={schedule.filteredSchedule}
+    />
+  ) : null
+)}
+
+    </div>
 
     </div>
   );

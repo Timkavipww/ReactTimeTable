@@ -1,5 +1,4 @@
 import React from "react";
-import CurrentWeek from "./CurrentWeek";
 
 interface WeekFilterProps {
   weekFilter: string;

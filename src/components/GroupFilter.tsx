@@ -1,5 +1,4 @@
 import React from "react";
-import CurrentWeek from "./CurrentWeek"; // Импортируем новый компонент
 
 interface GroupFilterProps {
   groupFilter: string;
